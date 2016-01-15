@@ -1,0 +1,40 @@
+
+Commands
+--------
+"connect [host]" -- all subsequent data messages will be sent also to this host (CM_CONNECT)
+"disconnect [host]" -- no more data messages will be sent to this host (CM_DISCONNECT)
+"disconnect/quit/exit" -- closes the connection with everybody, including server (CM_EXIT)
+"poweroff [password]" -- shuts the server down
+
+response to "What will be your name?" - send a CM_ADD message to server
+
+[any text] -- sends a data message to all connected hosts (DATA)
+available -- requests the server to send it a list of hosts (CM_RETRIEVE)
+
+Client Messages
+---------------
+
+CM_ADD - data is the name
+CM_CONNECT - data is the target host name
+CM_DISCONNECT - data is the host name
+CM_EXIT - no data
+DATA - data is the message itself
+CM_RETRIEVE - no data
+CM_POWEROFF - data is password
+
+
+Interpreting Received Messages
+------------------------------
+
+SM_UNAVAILABLE -- look at the data; the data contains the name of the client that disconnected, so 
+                  remove him from the client's personal list of data message receivers
+SM_ALREADYCONN -- sent in response to client requesting a connection to a host he is already connected 
+                  to; print "Already Connected!"
+SM_SUCCESS -- connection established with desired host; print "Connection successful!"
+SM_FAILURE -- connection failed to establish; print "Connection failed."
+SM_CLIENTLIST -- holds a comma-separated list of host names; grab these entries and display them in a 
+                 list
+SM_WELCOME -- print the data; go into the name loop
+SM_ALREADYUSED -- name is already in use; try to send the name again
+DATA -- print the data (say [source]: [data])
+SM_SERVEROFF -- print "server disconnected", and spit the user back into the "connect to server" loop

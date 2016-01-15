@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1362194268 source:c:\users\mark\documents\my programs\chat_client\main.cpp
+	"../network_common/main.h"
+
+1362110385 c:\users\mark\documents\my programs\chat_client\main.h
+	<iostream>
+	<ws2tcpip.h>
+	<algorithm>
+	<process.h>
+	<vector>
+	<fcntl.h>
+	<string>
+	<algorithm>
+
+1362110946 source:c:\users\mark\documents\my programs\chat_client\helper.cpp
+	"main.h"
+
+1362427743 c:\users\mark\documents\my programs\network_common\main.h
+	<iostream>
+	<ws2tcpip.h>
+	<algorithm>
+	<process.h>
+	<vector>
+	<fcntl.h>
+	<string>
+	<algorithm>
+	<limits>
+
+1362434867 source:c:\users\mark\documents\my programs\network_common\helper.cpp
+	"main.h"
+
